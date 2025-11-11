@@ -1,0 +1,14 @@
+const toString = Object.prototype.toString
+
+export function isDate(val: any): val is Date {
+  return toString.call(val) === '[object Date]'
+}
+
+// export function isObject(val: any): val is Object {
+//     // 此方法会将formdata、blobd等都判断为对象
+//     return val !== null && typeof val === 'object'
+// }
+
+export function isPlainObject(val: any): val is Object {
+  return toString.call(val) === '[object Object]'
+}
