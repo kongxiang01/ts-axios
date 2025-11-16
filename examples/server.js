@@ -54,9 +54,9 @@ registerInterceptorRouter()
 
 registerConfigRouter()
 
-// registerCancelRouter()
+registerCancelRouter()
 
-// registerMoreRouter()
+registerMoreRouter()
 
 app.use(router)
 
