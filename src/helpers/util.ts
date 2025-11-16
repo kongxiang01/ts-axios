@@ -5,7 +5,7 @@ export function isDate(val: any): val is Date {
 }
 
 // export function isObject(val: any): val is Object {
-//     // 此方法会将formdata、blobd等都判断为对象
+//     // 此方法会将formdata、blob等都判断为对象
 //     return val !== null && typeof val === 'object'
 // }
 
@@ -18,4 +18,26 @@ export function extend<T, U>(to: T, from: U): T & U {
     ;(to as T & U)[key] = from[key] as any
   }
   return to as T & U
+}
+
+export function deepMerge(...objs: any[]): any {
+  const result = Object.create(null)
+
+  objs.forEach(obj => {
+    if (obj) {
+      Object.keys(obj).forEach(key => {
+        const val = obj[key]
+        if (isPlainObject(val)) {
+          if (isPlainObject(result[key])) {
+            result[key] = deepMerge(result[key], val)
+          }
+          result[key] = deepMerge(val)
+        } else {
+          result[key] = val
+        }
+      })
+    }
+  })
+
+  return result
 }
