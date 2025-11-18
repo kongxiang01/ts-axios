@@ -12,7 +12,6 @@ function createInstance(config: AxiosRequestConfig): AxiosStatic {
 
   extend(instance, context)
 
-  // return instance
   return instance as AxiosStatic
 }
 
