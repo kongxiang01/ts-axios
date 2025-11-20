@@ -70,7 +70,7 @@ export function buildURL(
 }
 
 export function isAbsoluteURL(url: string): boolean {
-  return /(^[a-z][a-z\d\+\-\.]*:)?\/\//i.test(url) // i: ignore，忽略大小写
+  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url) // i: ignore，忽略大小写
 }
 
 export function combineURL(baseURL: string, relativeURL?: string): string {
